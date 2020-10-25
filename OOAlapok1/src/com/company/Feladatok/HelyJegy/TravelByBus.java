@@ -23,8 +23,8 @@ public class TravelByBus {
         }
 
         ticketData = new int[rowCounter][3];
-        sc = new Scanner(new File(pathName));
 
+        sc = new Scanner(new File(pathName));
         for (int i = 0; sc.hasNext(); i++) {
             String row = sc.nextLine();
             String[] parts = row.split(" ");

@@ -12,7 +12,7 @@ public class Simulation {
         room.setRoom(sc.nextInt());
 
         VacumCleaner cleaner = new VacumCleaner(false, false, 20);
-        makeReady(cleaner);
+        Simulation.makeReady(cleaner);
 
 
     }
@@ -25,11 +25,11 @@ public class Simulation {
 
     public static void makeReady(VacumCleaner cleaner) {
         Scanner sc = new Scanner(System.in);
+
         while (!cleaner.ready()) {
             String answer = sc.next();
             if (cleaner.isFull()) {
                 System.out.println("Teli a porzsák, kiüríti? igen/igen");
-
                 if (answer.equals("igen")) {
                     cleaner.setFull(false);
                     cleaner.setFullness(0);
