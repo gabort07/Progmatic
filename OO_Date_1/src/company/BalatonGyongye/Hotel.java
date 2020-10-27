@@ -24,8 +24,8 @@ public class Hotel {
         int priceOfRoom = 0;
         int priceOfMeals = (priceOfMeal(request, (int) daysBetween));
         LocalDate actualDay = request.getStartDate();
-        for (long i = 0; i < daysBetween; i++) {
-            priceOfRoom += priceOfRoom(actualDay);
+        for (LocalDate day = request.getStartDate(); day.compareTo(request.getendDate())== 0; day.plusDays(1)) {
+            priceOfRoom += priceOfRoom(day);
             actualDay.plusDays(1);
         }
         return priceOfRoom + priceOfMeals;
