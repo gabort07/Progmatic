@@ -41,7 +41,7 @@ public class Main {
         peopleList.add(p3);
 
         HashMap<Integer, Person> people = new HashMap<>();
-        people.put(p1.age, p1);
+        people.put(p1.getAge(), p1);
         people.put(29, p2);
         people.put(28, p3);
 
@@ -50,7 +50,7 @@ public class Main {
 
         for (Integer integer : people.keySet()) {
             // 28, 29
-            System.out.println(integer);
+            System.out.println("1"+integer);
             System.out.println( people.get(integer) );
         }
         for (Map.Entry<Integer, Person> personEntry : people.entrySet()) {
