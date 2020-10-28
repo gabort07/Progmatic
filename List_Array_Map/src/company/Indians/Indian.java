@@ -38,6 +38,10 @@ public class Indian {
         return tools;
     }
 
+    public int countTools() {
+        return this.getTools().size();
+    }
+
     @Override
     public String toString() {
         return "Indian{" +

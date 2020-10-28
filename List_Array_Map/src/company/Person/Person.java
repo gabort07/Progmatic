@@ -6,6 +6,11 @@ public class Person {
     private int height;
     private int weight;
 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public Person(String name) {
         this.name = name;
         this.age = (int) (Math.random() * 70 + 1);
