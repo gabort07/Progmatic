@@ -106,9 +106,7 @@ public class IndianDB {
     public List<Indian> writeDataFromFile(String pathName) throws FileNotFoundException {
         List<Indian> indians = new ArrayList<Indian>();
         Scanner sc = new Scanner(new File(pathName));
-        HashMap<String, List<Indian>> indiansByClan = new HashMap<>();
-        sc = new Scanner(new File(pathName));
-        while (sc.hasNext()) {
+        while (sc.hasNextLine()) {
             String[] parts = sc.nextLine().split(",");
             int age = Integer.parseInt(parts[3]);
             String[] tools = parts[4].split("\\|");
