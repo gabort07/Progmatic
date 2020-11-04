@@ -18,6 +18,9 @@ public class Indian {
         this.tools = tools;
     }
 
+    public Indian(String fekete_sólyom, int i, String apache) {
+    }
+
     public String getName() {
         return name;
     }
