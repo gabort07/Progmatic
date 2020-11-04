@@ -1,5 +1,6 @@
 package company.Comparatorok.Strings;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -7,9 +8,14 @@ public class Main {
     public static void main(String[] args) {
         String string1 = "naj4629 -i27v 9 ,3ndh12- 9df";
         String string2 = "naj4629 -i2fdc 5gj,33d214- 9";
-        countCharacters(string1);
-        countCharRepeat(string1);
-        countSameChars(string1, string2);
+        String text = "abcd";
+//        countCharacters(string1);
+//        countCharRepeat(string1);
+//        countSameChars(string1, string2);
+//        printUnicodeSequence(1000);
+//        decide('m');
+//        ceasarDecode(text, 2, 'E');
+
 
     }
 
@@ -50,7 +56,7 @@ public class Main {
 
     public static void countSameChars(String string1, String string2) {
         int nr = 0;
-        int length = string1.length() <= string2.length() ? string1.length() : string2.length();
+        int length = Math.min(string1.length(), string2.length());
 //        System.out.println(length);
         for (int i = 0; i < length; i++) {
             if (string1.charAt(i) == string2.charAt(i)) {
@@ -58,6 +64,34 @@ public class Main {
             }
         }
         System.out.println(nr);
+    }
+
+    public static void printUnicode(int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(Arrays.toString(Character.toChars(i)) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void decide(char c) {
+        System.out.println(Character.isAlphabetic((int) c) ? "Alphabetic" : "Numeric");
+    }
+
+    public static void ceasarDecode(String text, int key, char toDo) {
+        StringBuilder newText = new StringBuilder("");
+        switch (toDo) {
+            case 'E':
+                for (char c : text.toCharArray()) {
+                    newText.append(Character.toChars((int)c+key));
+                }
+                break;
+            case 'D':
+                for (char c : text.toCharArray()) {
+                    newText.append(Character.toChars((int) c - key));
+                }
+                break;
+        }
+        System.out.println(newText.toString());
     }
 
 }
