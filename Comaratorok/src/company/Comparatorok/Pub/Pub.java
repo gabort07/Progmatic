@@ -8,14 +8,14 @@ import java.util.List;
 public class Pub {
     private HashMap<String, Drink> drinkStorage;
     private List<Guest> guests;
-    private double openTime;
-    private int payBox;
+    private static double openTime;
+    private static int payBox;
 
     public Pub() {
         this.drinkStorage = new HashMap<>();
         this.guests = new ArrayList<>();
-        this.openTime=16;
-        this.payBox = 0;
+        Pub.openTime=16;
+        Pub.payBox = 0;
     }
 
     public HashMap<String, Drink> getDrinkStorage() {
@@ -32,5 +32,21 @@ public class Pub {
 
     public List<Guest> getGuests() {
         return guests;
+    }
+
+    public static double getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(double openTime) {
+        Pub.openTime = openTime;
+    }
+
+    public static int getPayBox() {
+        return payBox;
+    }
+
+    public static void setPayBox(int payBox) {
+        Pub.payBox = payBox;
     }
 }

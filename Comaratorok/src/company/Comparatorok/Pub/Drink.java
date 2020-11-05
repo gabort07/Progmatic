@@ -13,7 +13,7 @@ public class Drink {
         this.quantity = quantity;
         this.alcoholLevel = alcoholLevel;
         this.price = price;
-        this.dose=dose;
+        this.dose = dose;
     }
 
     public String getType() {
@@ -31,6 +31,32 @@ public class Drink {
     public int getPrice() {
         return price;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double getDose() {
+        return dose;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setAlcoholLevel(double alcoholLevel) {
+        this.alcoholLevel = alcoholLevel;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDose(double dose) {
+        this.dose = dose;
+    }
+
+
 
     @Override
     public String toString() {
