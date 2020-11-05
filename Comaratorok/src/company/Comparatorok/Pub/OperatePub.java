@@ -52,7 +52,7 @@ public class OperatePub {
     public  void serveGuest(Guest actualGuest, Drink actualDrink) {
         actualDrink.setQuantity(actualDrink.getQuantity() - actualDrink.getDose());
         if(actualDrink.getQuantity()==0){
-
+            actualDrink.getQuantity();
         }
         actualGuest.setAlcoholLevel(actualGuest.getAlcoholLevel() - actualDrink.getAlcoholLevel());
         Pub.setPayBox(Pub.getPayBox() + actualDrink.getPrice());
