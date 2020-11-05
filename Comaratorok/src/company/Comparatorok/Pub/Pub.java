@@ -1,11 +1,22 @@
 package company.Comparatorok.Pub;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
 public class Pub {
-    private HashMap<String, Drink> drinkStorage  = new HashMap<>();
+    private HashMap<String, Drink> drinkStorage;
+    private List<Guest> guests;
+    private double openTime;
+    private int payBox;
+
+    public Pub() {
+        this.drinkStorage = new HashMap<>();
+        this.guests = new ArrayList<>();
+        this.openTime=16;
+        this.payBox = 0;
+    }
 
     public HashMap<String, Drink> getDrinkStorage() {
         return drinkStorage;
@@ -13,5 +24,13 @@ public class Pub {
 
     public void setDrinkStorage(HashMap<String, Drink> drinkStorage) {
         this.drinkStorage = drinkStorage;
+    }
+
+    public void setGuests(List<Guest> guests) {
+        this.guests = guests;
+    }
+
+    public List<Guest> getGuests() {
+        return guests;
     }
 }
