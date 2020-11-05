@@ -1,5 +1,6 @@
 package company.Comparatorok.Strings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -12,7 +13,8 @@ public class Main {
 //        countCharacters(string1);
 //        countCharRepeat(string1);
 //        countSameChars(string1, string2);
-//        printUnicodeSequence(1000);
+        printUnicodeSequence(128);
+        System.out.println((char) 97);
 //        decide('m');
 //        ceasarDecode(text, 2, 'E');
 
@@ -66,7 +68,7 @@ public class Main {
         System.out.println(nr);
     }
 
-    public static void printUnicode(int size) {
+    public static void printUnicodeSequence(int size) {
         for (int i = 0; i < size; i++) {
             System.out.print(Arrays.toString(Character.toChars(i)) + " ");
         }
