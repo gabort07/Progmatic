@@ -1,13 +1,10 @@
 package company;
 
 public class SelectionSort {
-
-
     public static void sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIdx = findMinIndexFrom(array, i);
-            swap(array, i, minIdx);
-            if (array[i] < array[minIdx]) {
+            if (minIdx != i) {
                 swap(array, i, minIdx);
             }
         }
@@ -16,7 +13,7 @@ public class SelectionSort {
     private static int findMinIndexFrom(int[] array, int from) {
         int minIdx = from;
         for (int i = from + 1; i < array.length; i++) {
-            if (minIdx != i) {
+            if (array[i] < array[minIdx]) {
                 minIdx = i;
             }
         }
