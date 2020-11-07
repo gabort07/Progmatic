@@ -8,11 +8,12 @@ public class Main {
 
         UserDataBase dataBase = new UserDataBase();
         Operator operator = new Operator(dataBase);
-        operator.writeFromFile("Files/users.txt","Files/swipe.txt");
+        operator.writeFromFile("Files/users.txt", "Files/swipes.txt");
 
         System.out.println("4. Ki az alkalmazás “királynõje”? " +
                 "(Melyik nõi felhasználót jelölték be a legtöbben kedvencnek?) " +
-                "Ha holtverseny alakul ki, akkor írd ki az összes felhasználó nevét!" +  );
+                "Ha holtverseny alakul ki, akkor írd ki az összes felhasználó nevét!");
+        operator.printTheMostLiked("FEMALE");
 
     }
 }

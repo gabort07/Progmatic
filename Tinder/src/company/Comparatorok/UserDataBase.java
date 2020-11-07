@@ -5,15 +5,25 @@ import java.util.HashSet;
 import java.util.List;
 
 public class UserDataBase {
-  private HashMap<Integer, HashSet<User>> mapOfUsers;
+  private List<User> listOfUsers;
   private List<Swipes> listOfSwipes;
+  private HashMap<String, HashSet<User>> usersByGender;
 
-  public HashMap<Integer, HashSet<User>> getMapOfUsers() {
-    return mapOfUsers;
+
+  public void setUsersByGender(HashMap<String, HashSet<User>> usersByGender) {
+    this.usersByGender = usersByGender;
   }
 
-  public void setMapOfUsers(HashMap<Integer, HashSet<User>> mapOfUsers) {
-    this.mapOfUsers = mapOfUsers;
+  public HashMap<String, HashSet<User>> getUsersByGender() {
+    return usersByGender;
+  }
+
+  public List<User> getListOfUsers() {
+    return listOfUsers;
+  }
+
+  public void setListOfUsers(List<User> listOfUsers) {
+    this.listOfUsers = listOfUsers;
   }
 
   public List<Swipes> getListOfSwipes() {

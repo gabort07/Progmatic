@@ -9,11 +9,14 @@ public class Operator {
 
     private UserDataBase dataBase;
 
-    public Operator(UserDataBase dataBase){this.dataBase=dataBase;}
+
+    public Operator(UserDataBase dataBase) {
+        this.dataBase = dataBase;
+    }
 
     public void writeFromFile(String userFile, String swipesFile) throws FileNotFoundException {
         Scanner scan1 = new Scanner(new File(swipesFile));
-        Scanner scan2 = new Scanner((new File(swipesFile)));
+        Scanner scan2 = new Scanner((new File(userFile)));
 
         List<Swipes> listOfSwipes = new ArrayList<>();
 
@@ -25,27 +28,51 @@ public class Operator {
         }
         dataBase.setListOfSwipes(listOfSwipes);
 
-        HashMap<Integer, HashSet<User>> mapOfUsers = new HashMap<>();
-        while( scan2.hasNextLine()){
+        List<User> listOfUsers = new ArrayList<>();
+        while (scan2.hasNextLine()) {
             String[] uD = scan2.nextLine().split(",");
             int userID = Integer.parseInt(uD[0]);
             HashSet<Swipes> personalSwipes = new HashSet<>(listOfSwipes);
             User user = new User(userID, uD[1], uD[2], Integer.parseInt(uD[3]), uD[4], uD[5]);
             user.makeSwipeMap(personalSwipes);
-
-            mapOfUsers.putIfAbsent(userID, new HashSet<>());
-            mapOfUsers.get(userID).add(user);
+            listOfUsers.add(user);
         }
-        dataBase.setMapOfUsers(mapOfUsers);
+        dataBase.setListOfUsers(listOfUsers);
     }
 
-public void printTheMostVoted(String gender){
-        HashMap<String, HashSet<User>> actualMap = new HashMap<>();
-        TreeMap<Integer, HashSet<Swipes>> treeOfVoted = new TreeMap<>();
-        for(Swipes actual : dataBase.getListOfSwipes()){
-            treeOfVoted.ad
+    public void makeUserMapByGender() {
+        HashMap<String, HashSet<User>> usersByGender = new HashMap<>();
+        for (User actual : dataBase.getListOfUsers()) {
+            usersByGender.putIfAbsent(actual.getGender(), new HashSet<>());
+            usersByGender.get(actual.getGender()).add(actual);
+        }
+        dataBase.setUsersByGender(usersByGender);
+    }
+
+    public void printTheMostLiked(String gender) {
+        makeUserMapByGender();
+        TreeMap<Integer, Integer> mostVotedFemales = new TreeMap<>();
+        for (Swipes actualSwipe : dataBase.getListOfSwipes()) {
+            if (actualSwipe.getType().equals("LIKE")) {
+                int votedID = actualSwipe.getSentTo();
+                for (User actualUser : dataBase.getUsersByGender().get(gender)) {
+                    int actualID = actualUser.getId();
+                    if (actualUser.getId() == votedID) {
+                        mostVotedFemales.putIfAbsent(actualID, 1);
+                        mostVotedFemales.put(actualUser.getId(), mostVotedFemales.get(actualID) + 1);
+                    }
+                }
+
+            }
+
+        }
+        int i = 0;
+        for (int key : mostVotedFemales.keySet()) {
+            if (mostVotedFemales.get(key) > i) {
+                i = mostVotedFemales.get(key);
+            }
         }
 
-}
-
+        System.out.println(dataBase.getListOfUsers().get(i+1).getName());
+    }
 }

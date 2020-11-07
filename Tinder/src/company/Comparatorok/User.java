@@ -28,6 +28,33 @@ public class User {
         }
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getHairColor() {
+        return hairColor;
+    }
+
+    public String getEyeColor() {
+        return eyeColor;
+    }
+
+    public HashMap<String, HashSet<Swipes>> getSwipesMap() {
+        return swipesMap;
+    }
 
     @Override
     public boolean equals(Object o) {
