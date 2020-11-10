@@ -10,6 +10,7 @@ public class Guest {
     private boolean thirsty;
     private double alcoholLevel;
     private List<String> drinkToChoose;
+    
 
     public Guest(int name, Set<String> drinks) {
         this.drinkToChoose = new ArrayList<>(drinks);

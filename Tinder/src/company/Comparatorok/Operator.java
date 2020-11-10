@@ -52,9 +52,15 @@ public class Operator {
     public void printTheMostLiked(String gender) {
         makeUserMapByGender();
         TreeMap<Integer, Integer> mostVotedFemales = new TreeMap<>();
+        int id = 0;
+        int likes = 0;
         for (Swipes actualSwipe : dataBase.getListOfSwipes()) {
-            if (actualSwipe.getType().equals("LIKE")) {
-                int votedID = actualSwipe.getSentTo();
+            int actualID = actualSwipe.getSentTo();
+            String userGender =dataBase.getListOfUsers().get(actualID).getGender();
+            if (actualSwipe.getType().equals("LIKE" ) && userGender.equals(gender)) {
+                mostVotedFemales.putIfAbsent(actualID, 1);
+                mostVotedFemales.put(actualID, mostVotedFemales.get(actualID)+1);
+
                 for (User actualUser : dataBase.getUsersByGender().get(gender)) {
                     int actualID = actualUser.getId();
                     if (actualUser.getId() == votedID) {

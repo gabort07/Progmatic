@@ -15,5 +15,8 @@ public class Main {
                 "Ha holtverseny alakul ki, akkor írd ki az összes felhasználó nevét!");
         operator.printTheMostLiked("FEMALE");
 
+
+
+
     }
-}
+
