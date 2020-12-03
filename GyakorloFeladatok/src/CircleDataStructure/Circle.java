@@ -2,7 +2,6 @@ package CircleDataStructure;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Circle<T> implements Iterable<T> {
     LinkedList<T> list = new LinkedList<T>();
@@ -57,8 +56,8 @@ class CircleIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        if(current.isEmpty()){
-            current=next;
+        if (current.isEmpty()) {
+            current = next;
         }
         T actual = current.poll();
         next.add(actual);
