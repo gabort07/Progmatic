@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Police {
     private static List<Suspect> suspect = new ArrayList<>();
-    ;
+
     private static Map<Suspect, Integer> statistic = new HashMap<>();
 
 
@@ -59,17 +59,17 @@ public class Police {
             addToMap(one, 2);
             two.setPunishment(one, 2);
             addToMap(two, 2);
-        } else if (confessOne && !confessTwo) {
+        } else if (confessOne) {
             one.setPunishment(two, 3);
             two.setPunishment(one, 0);
             addToMap(one, 3);
             addToMap(two, 0);
-        } else if (!confessOne && !confessTwo) {
+        } else if (!confessTwo) {
             one.setPunishment(two, 1);
             two.setPunishment(one, 1);
             addToMap(one, 1);
             addToMap(two, 1);
-        } else if (!confessOne && confessTwo) {
+        } else {
             one.setPunishment(two, 0);
             two.setPunishment(one, 3);
             addToMap(one, 0);

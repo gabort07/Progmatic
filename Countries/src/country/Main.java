@@ -9,7 +9,7 @@ public class Main {
         worldStatistics.readFiles("files/varosok.txt", "files/orszagok.txt");
 
         System.out.println("2. Népsûrûség (fõ/km2)");
-        worldStatistics.writePopDensity();
+        worldStatistics.    writePopDensity();
 
 //        System.out.println("3. hány fõ él a felsorolt városokon kívül?");
 //        worldStatistics.writeRuralPopulation();

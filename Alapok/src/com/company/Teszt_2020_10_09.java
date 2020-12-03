@@ -9,7 +9,7 @@ public class Teszt_2020_10_09 {
         int[][] random2DArray = {{1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}, {4, 3, 2, 1}};
 
 
-//        System.out.println(getLastNumber(randomArray1));
+        System.out.println(getLastNumber(randomArray1));
 //        System.out.println(countEvenNumbers(randomArray1));
 //        System.out.println(findNumber101(randomArray1));
 //        System.out.println(countSameNumbers(randomArray2, randomArray3));
